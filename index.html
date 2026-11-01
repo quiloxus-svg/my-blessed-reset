@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Blessed Reset | Angel Number Check-In</title>
+<meta name="description" content="Pick the angel number that caught your eye and get a song, an affirmation and a journal prompt for today. From The Blessed Reset Radio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--berry:#651B43;--coral:#FF685D;--gold:#F2B544;--ivory:#FFF2E5;--ink:#3a1228;--card:#fffaf4;--line:#ead8c6}
+*{box-sizing:border-box}
+body{margin:0;font-family:Lora,Georgia,serif;color:var(--ink);background:var(--ivory);line-height:1.6}
+.hero{position:relative;color:var(--ivory);text-align:center;padding:56px 20px 64px;background:linear-gradient(rgba(101,27,67,.82),rgba(60,12,40,.9)),url(hero.jpg) center 20%/cover}
+.brand{font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3.2rem);margin:.3em 0 .1em}
+.script{font-family:'Great Vibes',cursive;color:var(--gold);font-size:clamp(1.8rem,5vw,2.6rem);margin:0}
+.sub{max-width:34rem;margin:.8em auto 0;opacity:.95}
+main{max-width:46rem;margin:-34px auto 0;padding:0 16px 40px;position:relative}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 8px 24px rgba(101,27,67,.08)}
+h2{font-family:'Playfair Display',serif;color:var(--berry);margin:.1em 0 .5em;font-size:1.35rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(min-width:560px){.grid{grid-template-columns:repeat(6,1fr)}}
+.num{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;border:2px solid var(--line);background:#fff;color:var(--berry);border-radius:14px;padding:12px 4px;cursor:pointer}
+.num small{display:block;font:500 .68rem Lora,serif;letter-spacing:.04em;color:#8a5a73;margin-top:2px}
+.num[aria-pressed=true]{background:var(--berry);color:var(--ivory);border-color:var(--berry)}
+.num[aria-pressed=true] small{color:var(--gold)}
+.num:focus-visible,.btn:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.btn{font:500 1rem Lora,serif;border:0;border-radius:999px;padding:11px 20px;cursor:pointer;background:var(--coral);color:#fff;text-decoration:none;display:inline-block}
+.btn.alt{background:transparent;color:var(--berry);border:2px solid var(--berry)}
+select,textarea{font:inherit;color:var(--ink);border:2px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px;width:100%}
+select{width:auto;max-width:100%}
+textarea{min-height:110px;resize:vertical}
+.theme{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);font-weight:500}
+.big{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--berry);margin:0;line-height:1.1}
+.title{font-family:'Great Vibes',cursive;font-size:2.2rem;color:var(--coral);margin:0 0 6px}
+.aff{font-style:italic;font-size:1.2rem;border-left:4px solid var(--gold);padding:4px 0 4px 14px;margin:14px 0}
+.video{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#2b0c1e;margin-top:10px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.note{font-size:.85rem;color:#6b4a5c}
+.saved{font-size:.9rem;color:#2d6a4f;min-height:1.3em}
+ul.log{list-style:none;padding:0;margin:10px 0 0}
+ul.log li{border-top:1px solid var(--line);padding:10px 0;font-size:.95rem}
+ul.log b{color:var(--berry)}
+.cta{background:var(--berry);color:var(--ivory);border:0}
+.cta h2{color:var(--gold)}
+.cta .btn{background:var(--gold);color:var(--ink)}
+footer{max-width:46rem;margin:0 auto;padding:0 16px 40px;text-align:center;font-size:.82rem;color:#6b4a5c}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="brand">The Blessed Reset Radio</div>
+  <h1>My Blessed Reset</h1>
+  <p class="script">Angel Number Check-In</p>
+  <p class="sub">See a number? Pick it, press play, and take two quiet minutes for yourself.</p>
+</header>
+<main>
+  <section class="panel" aria-labelledby="pick">
+    <h2 id="pick">Which number caught your eye?</h2>
+    <div class="grid" id="grid" role="group" aria-label="Angel numbers"></div>
+    <div class="row">
+      <button class="btn" id="today" type="button">Show my number today</button>
+      <label class="note" for="goal">or start from what you need:</label>
+      <select id="goal" aria-label="Choose what you need">
+        <option value="">Choose one</option>
+        <option value="111">A fresh start</option>
+        <option value="222">Steady momentum and gratitude</option>
+        <option value="444">Support and rest</option>
+        <option value="777">Trust and timing</option>
+        <option value="888">Gratitude and overflow</option>
+        <option value="11:11">A pause to breathe and begin again</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="panel hidden" id="result" aria-live="polite">
+    <div class="theme" id="theme"></div>
+    <p class="big" id="bignum"></p>
+    <p class="title" id="songtitle"></p>
+    <p id="meaning"></p>
+    <div class="video" id="video"></div>
+    <p class="note" id="vnote"></p>
+    <h2 style="margin-top:20px">Say it out loud</h2>
+    <div id="affs"></div>
+    <div class="row"><button class="btn alt" id="another" type="button">Show another affirmation</button></div>
+  </section>
+
+  <section class="panel hidden" id="journal">
+    <h2>Today's journal prompt</h2>
+    <p id="prompt" style="font-size:1.1rem"></p>
+    <label class="note" for="entry">Write a line or two. It is saved only on this device.</label>
+    <textarea id="entry" placeholder="Start here..."></textarea>
+    <div class="row">
+      <button class="btn" id="save" type="button">Save my check-in</button>
+      <span class="saved" id="saved" role="status"></span>
+    </div>
+  </section>
+
+  <section class="panel hidden" id="history">
+    <h2>My check-ins</h2>
+    <ul class="log" id="log"></ul>
+    <div class="row"><button class="btn alt" id="clear" type="button">Clear my check-ins</button></div>
+    <p class="note">These notes stay in this browser on this device. If you clear your browser data or switch devices, they will not come with you.</p>
+  </section>
+
+  <section class="panel cta">
+    <h2>Take the whole reset home</h2>
+    <p>The Angel Number Manifestation Pack has all five songs to download and keep, printable affirmation cards and a guided journal.</p>
+    <a class="btn" href="https://stan.store/ThePluggedHub/p/angel-number-manifestation-pack" target="_blank" rel="noopener">Get the Pack</a>
+  </section>
+
+  <section class="panel">
+    <h2>Want a song written from your own story?</h2>
+    <p>"Your Story in a Song" is a custom original song for a birthday, anniversary, prayer or milestone.</p>
+    <a class="btn alt" href="https://stan.store/ThePluggedHub/p/your-story-in-a-song" target="_blank" rel="noopener">Hear how it works</a>
+  </section>
+</main>
+<footer>
+  <p>For encouragement and reflection. This app does not give financial, medical or legal advice and promises no specific results. Songs and visuals were created with AI tools.</p>
+  <p>&copy; The Blessed Reset Radio &middot; <a href="https://www.youtube.com/@TheBlessedReset" target="_blank" rel="noopener" style="color:inherit">YouTube</a></p>
+</footer>
+
+<script>
+var DATA=[
+ {n:'111',title:'I Decided',theme:'New Beginnings',yt:'-9FLcns-MDc',
+  meaning:'A fresh start is asking for your yes. 111 is the moment you stop waiting for a sign and make the call.',
+  aff:['I decided, and my path is already opening.','I choose first. I do not wait for permission.','Every small step I take is blessed.'],
+  prompts:['What have I been waiting for permission to start?','What is one decision I can make today, however small?','What would I begin if I trusted that help is already on the way?']},
+ {n:'222',title:'Magnetic',theme:'Balance and Abundance',yt:'4tagOKxO4T8',
+  meaning:'222 is steady, patient momentum. Stay grateful, stay consistent, and make room for more.',
+  aff:['I am steady, grateful and ready for more.','What is meant for me knows my name.','I welcome abundance with open hands.'],
+  prompts:['Where in my life do I need more steadiness and less rush?','What does being ready for more look like this week?','What am I already grateful for that I used to pray for?']},
+ {n:'444',title:'Held',theme:'Support and Protection',yt:'0KUzJ7AEr5A',
+  meaning:'444 is the reminder that you are held. You do not have to carry everything alone.',
+  aff:['I am held, kept and supported.','I do not have to prove my worth to be loved.','I can rest, because I am not carrying this alone.'],
+  prompts:['What am I carrying that I can set down today?','Who or what has held me up when I did not see it?','What would it feel like to be fully supported right now?']},
+ {n:'777',title:'Not Luck',theme:'Alignment and Divine Timing',yt:'RgddQ63LARU',
+  meaning:'777 is the doors that open because you were aligned all along. It was never luck.',
+  aff:["It's not luck, it's alignment.","It's not chance, it's a plan.","What's mine will find me."],
+  prompts:['What is one door that opened that I never saw coming?','Where am I trying to force something instead of trusting the timing?','What would I do today if I knew heaven had my back?']},
+ {n:'888',title:'Overflow',theme:'Gratitude and Abundance',yt:'wRm87V_Uz-4',
+  meaning:'888 is the flow. Gratitude keeps the door open, and there is enough to give and to receive.',
+  aff:['I am always in the flow.','I have enough to give and enough to receive.','Gratitude opens the door to more.'],
+  prompts:['What is already overflowing in my life, big or small?','Where can I give freely today?','What do I want to receive with an open heart?']},
+ {n:'11:11',title:'Begin Again',theme:'Pause, Breathe, Wish',yt:'cWPvAQfDNms',
+  meaning:'11:11 is a pause. Breathe, set your intention, and begin again with grace.',
+  aff:['I pause, and I breathe.','I trust the timing of my life.','I begin again, with grace.'],
+  prompts:['What is my intention for this moment?','What do I want to release before I begin again?','What is one thing I am hopeful about?']}
+];
+var KEY='myBlessedResetLog';
+var cur=null, affIdx=0, promptIdx=0;
+function $(id){return document.getElementById(id)}
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}}
+function store(a){try{localStorage.setItem(KEY,JSON.stringify(a));return true}catch(e){return false}}
+function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+
+var grid=$('grid');
+DATA.forEach(function(d,i){
+  var b=document.createElement('button');b.type='button';b.className='num';b.setAttribute('aria-pressed','false');
+  b.innerHTML=d.n+'<small>'+esc(d.title)+'</small>';
+  b.onclick=function(){show(i)};grid.appendChild(b);
+});
+function dayIndex(){var t=new Date();var start=new Date(t.getFullYear(),0,0);return Math.floor((t-start)/86400000)%5}
+function show(i){
+  cur=i;affIdx=0;promptIdx=Math.floor(Math.random()*3);
+  var d=DATA[i];
+  [].forEach.call(grid.children,function(b,k){b.setAttribute('aria-pressed',k===i?'true':'false')});
+  $('theme').textContent=d.theme;$('bignum').textContent=d.n;$('songtitle').textContent=d.title;$('meaning').textContent=d.meaning;
+  $('video').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+d.yt+'" title="'+esc(d.title)+' ('+d.n+') song" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  $('vnote').innerHTML='Song not showing yet? New songs release one per day starting Nov 6. <a href="https://www.youtube.com/@TheBlessedReset" target="_blank" rel="noopener">Watch on YouTube</a>.';
+  renderAff();$('prompt').textContent=d.prompts[promptIdx];$('entry').value='';$('saved').textContent='';
+  ['result','journal'].forEach(function(id){$(id).classList.remove('hidden')});
+  renderLog();
+  $('result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function renderAff(){var d=DATA[cur];$('affs').innerHTML='<p class="aff">'+esc(d.aff[affIdx])+'</p>'}
+$('another').onclick=function(){affIdx=(affIdx+1)%DATA[cur].aff.length;renderAff();promptIdx=(promptIdx+1)%3;$('prompt').textContent=DATA[cur].prompts[promptIdx]};
+$('today').onclick=function(){show(dayIndex())};
+$('goal').onchange=function(e){if(!e.target.value)return;var i=DATA.findIndex(function(d){return d.n===e.target.value});if(i>-1)show(i)};
+$('save').onclick=function(){
+  var txt=$('entry').value.trim();if(!txt){$('saved').textContent='Write a line first.';return}
+  var a=load();a.unshift({d:new Date().toLocaleDateString(),n:DATA[cur].n,p:DATA[cur].prompts[promptIdx],t:txt});
+  $('saved').textContent=store(a.slice(0,50))?'Saved on this device.':'Could not save in this browser.';
+  $('entry').value='';renderLog();
+};
+$('clear').onclick=function(){if(confirm('Clear all saved check-ins from this device?')){store([]);renderLog()}};
+function renderLog(){
+  var a=load(),h=$('history');
+  if(!a.length){h.classList.add('hidden');return}
+  h.classList.remove('hidden');
+  $('log').innerHTML=a.map(function(x){return '<li><b>'+esc(x.d)+' &middot; '+esc(x.n)+'</b><br><i>'+esc(x.p)+'</i><br>'+esc(x.t)+'</li>'}).join('');
+}
+renderLog();
+</script>
+</body>
+</html>
