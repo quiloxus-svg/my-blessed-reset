@@ -86,7 +86,7 @@ footer{max-width:46rem;margin:0 auto;padding:0 16px 40px;text-align:center;font-
     <p class="note" id="vnote"></p>
     <h2 style="margin-top:20px">Say it out loud</h2>
     <div id="affs"></div>
-    <div class="row"><button class="btn alt" id="another" type="button">Show another affirmation</button></div>
+    <div class="row"><button class="btn alt" id="another" type="button">Show another affirmation</button><a class="btn alt" href="https://www.youtube.com/@TheBlessedReset?sub_confirmation=1" target="_blank" rel="noopener">Subscribe for new songs</a></div>
   </section>
 
   <section class="panel hidden" id="journal">
@@ -171,7 +171,7 @@ function show(i){
   [].forEach.call(grid.children,function(b,k){b.setAttribute('aria-pressed',k===i?'true':'false')});
   $('theme').textContent=d.theme;$('bignum').textContent=d.n;$('songtitle').textContent=d.title;$('meaning').textContent=d.meaning;
   $('video').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+d.yt+'" title="'+esc(d.title)+' ('+d.n+') song" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
-  $('vnote').innerHTML='Song not showing yet? New songs release one per day starting Nov 6. <a href="https://www.youtube.com/@TheBlessedReset" target="_blank" rel="noopener">Watch on YouTube</a>.';
+  $('vnote').innerHTML='Song not playing here? <a href="https://www.youtube.com/watch?v='+d.yt+'" target="_blank" rel="noopener">Watch it on YouTube</a>.';
   renderAff();$('prompt').textContent=d.prompts[promptIdx];$('entry').value='';$('saved').textContent='';
   ['result','journal'].forEach(function(id){$(id).classList.remove('hidden')});
   renderLog();
