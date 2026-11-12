@@ -164,7 +164,7 @@ DATA.forEach(function(d,i){
   b.innerHTML=d.n+'<small>'+esc(d.title)+'</small>';
   b.onclick=function(){show(i)};grid.appendChild(b);
 });
-function dayIndex(){var t=new Date();var start=new Date(t.getFullYear(),0,0);return Math.floor((t-start)/86400000)%5}
+function dayIndex(){var t=new Date();var start=new Date(t.getFullYear(),0,0);return Math.floor((t-start)/86400000)%DATA.length}
 function show(i){
   cur=i;affIdx=0;promptIdx=Math.floor(Math.random()*3);
   var d=DATA[i];
